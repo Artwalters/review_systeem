@@ -238,12 +238,17 @@ function handleRating(rating) {
             ease: 'power2.out'
         }, '-=0.3');
 
-        timeline.from('.submit-btn', {
-            duration: 0.4,
-            opacity: 0,
-            scale: 0.9,
-            ease: 'back.out(1.5)'
-        }, '-=0.2');
+        timeline.fromTo('.submit-btn',
+            {
+                opacity: 0,
+                scale: 0.9
+            },
+            {
+                duration: 0.4,
+                opacity: 1,
+                scale: 1,
+                ease: 'back.out(1.5)'
+            }, '-=0.2');
     }
 }
 
