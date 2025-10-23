@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akropolis Heerlen - Uw Ervaring</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-section">
+            <img src="logo/logo_header.webp" alt="Akropolis Heerlen" class="logo" id="logo">
+            <h1>Hoe was uw ervaring bij Akropolis Heerlen?</h1>
+        </div>
+
+        <!-- Sterren rating sectie -->
+        <div class="rating-section" id="ratingSection">
+            <div class="stars">
+                <span class="star" data-rating="1">&#9734;</span>
+                <span class="star" data-rating="2">&#9734;</span>
+                <span class="star" data-rating="3">&#9734;</span>
+                <span class="star" data-rating="4">&#9734;</span>
+                <span class="star" data-rating="5">&#9734;</span>
+            </div>
+            <p class="rating-text">Klik op de sterren om uw beoordeling te geven</p>
+        </div>
+
+        <!-- Feedback formulier (verborgen totdat < 5 sterren gekozen) -->
+        <div class="feedback-section" id="feedbackSection">
+            <h2>Vertel ons wat we kunnen verbeteren</h2>
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="name">Naam (optioneel):</label>
+                    <input type="text" id="name" name="name" placeholder="Uw naam">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail (optioneel):</label>
+                    <input type="email" id="email" name="email" placeholder="uw@email.nl">
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback">Uw feedback:</label>
+                    <textarea id="feedback" name="feedback" rows="6" placeholder="Vertel ons wat we kunnen verbeteren..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Verzenden</button>
+            </form>
+        </div>
+
+        <!-- Bedankt bericht -->
+        <div class="thank-you-section" id="thankYouSection">
+            <div class="thank-you-icon">✓</div>
+            <h2>Bedankt voor uw feedback!</h2>
+            <p>Wij waarderen uw mening en zullen deze gebruiken om onze service te verbeteren.</p>
+        </div>
+
+        <!-- Quick Links Footer -->
+        <div class="quick-links">
+            <div class="divider"></div>
+            <p class="quick-links-title">Blijf verbonden</p>
+            <div class="social-links">
+                <a href="https://akropolis-heerlen.nl/" target="_blank" rel="noopener noreferrer" class="social-link website-link" title="Website">
+                    <i class="fas fa-globe"></i>
+                </a>
+                <a href="https://www.instagram.com/akropolisgeleen/?hl=el" target="_blank" rel="noopener noreferrer" class="social-link instagram-link" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/akropolisgeleen/" target="_blank" rel="noopener noreferrer" class="social-link facebook-link" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="emailjs-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
