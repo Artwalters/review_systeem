@@ -161,9 +161,10 @@ textarea {
     min-height: 120px;
 }
 
+/* Submit button - always visible */
 .submit-btn {
-    background: linear-gradient(135deg, #B8803F 0%, #8a6030 100%);
-    color: white;
+    background: linear-gradient(135deg, #B8803F 0%, #8a6030 100%) !important;
+    color: white !important;
     border: none;
     padding: 15px 40px;
     border-radius: 25px;
@@ -174,9 +175,10 @@ textarea {
     margin-top: 10px;
     position: relative;
     overflow: hidden;
-    display: inline-block;
-    opacity: 1;
-    visibility: visible;
+    display: inline-block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10;
 }
 
 .submit-btn::before {
