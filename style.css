@@ -11,7 +11,7 @@ html {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #B8803F 0%, #8a6030 100%) fixed;
+    background: #F2E6D0;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -239,6 +239,24 @@ textarea {
     line-height: 1.6;
 }
 
+.google-review-note {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+}
+
+.google-review-note a {
+    color: #B8803F;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.google-review-note a:hover {
+    color: #8a6030;
+    text-decoration: underline;
+}
+
 /* Quick Links Footer */
 .quick-links {
     margin-top: 40px;
@@ -431,6 +449,10 @@ textarea {
         width: 70px;
         height: 70px;
         font-size: 40px;
+    }
+
+    .google-review-note {
+        font-size: 11px;
     }
 }
 
