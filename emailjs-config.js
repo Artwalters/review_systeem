@@ -12,9 +12,9 @@
 // 5. Vervang de waarden hieronder
 
 const EMAILJS_CONFIG = {
-    serviceID: 'YOUR_SERVICE_ID',      // Vervang met je EmailJS Service ID
-    templateID: 'YOUR_TEMPLATE_ID',    // Vervang met je EmailJS Template ID
-    publicKey: 'YOUR_PUBLIC_KEY'       // Vervang met je EmailJS Public Key
+    serviceID: 'service_47s8oi9',      // EmailJS Service ID
+    templateID: 'template_de4ed4x',    // EmailJS Template ID
+    publicKey: 'wF-4QAP4NvBd5rSFK'     // EmailJS Public Key
 };
 
 // Functie om email te versturen via EmailJS
