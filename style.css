@@ -1,3 +1,8 @@
+/**
+ * Social Wave Review System
+ * Apple-inspired Design System
+ */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,38 +15,40 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #f5f5f7;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px 20px;
     margin: 0;
     width: 100%;
     overflow-x: hidden;
     position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Background logo in linker benedenhoek */
 .background-logo {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 120px;
-    opacity: 0.15;
+    bottom: 24px;
+    left: 24px;
+    width: 100px;
+    opacity: 0.06;
     z-index: 0;
-    filter: invert(1) brightness(100);
+    filter: invert(0);
     pointer-events: none;
 }
 
 .container {
-    background: white;
-    border-radius: 24px;
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
-    padding: 50px 45px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    padding: 56px 48px;
     width: 100%;
-    max-width: 600px;
+    max-width: 580px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -49,73 +56,75 @@ body {
     z-index: 1;
 }
 
+/* Verwijder decoratieve bar - te druk voor Apple design */
 .container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #2d3748 0%, #4a5568 50%, #2d3748 100%);
-    opacity: 0.8;
+    display: none;
 }
 
 .logo-section {
-    margin-bottom: 40px;
+    margin-bottom: 48px;
 }
 
 .logo {
-    max-width: 280px;
+    max-width: 240px;
     height: auto;
-    margin: 0 auto 25px;
+    margin: 0 auto 32px;
     display: block;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.04));
 }
 
 h1 {
-    color: #333;
-    font-size: 28px;
+    color: #1d1d1f;
+    font-size: 32px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
 }
 
+/* Rating Section */
 .rating-section {
-    margin: 40px 0;
+    margin: 48px 0;
+    padding: 32px 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .stars {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 .star {
-    font-size: 60px;
-    color: #ddd;
+    font-size: 52px;
+    color: #e5e5ea;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
 }
 
 .star:hover,
 .star.hovered {
-    color: #ffc107;
-    transform: scale(1.2);
+    color: #ff9500;
+    transform: scale(1.08);
 }
 
 .star.selected {
-    color: #ffc107;
+    color: #ff9500;
 }
 
 .rating-text {
-    color: #666;
-    font-size: 16px;
+    color: #86868b;
+    font-size: 15px;
+    font-weight: 400;
 }
 
+/* Feedback Section */
 .feedback-section {
     display: none;
-    animation: fadeIn 0.5s ease;
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .feedback-section.visible {
@@ -125,7 +134,7 @@ h1 {
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(12px);
     }
     to {
         opacity: 1;
@@ -134,94 +143,92 @@ h1 {
 }
 
 h2 {
-    color: #333;
+    color: #1d1d1f;
     font-size: 24px;
-    margin-bottom: 25px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    letter-spacing: -0.3px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     text-align: left;
 }
 
 label {
     display: block;
-    color: #555;
+    color: #1d1d1f;
     font-weight: 500;
     margin-bottom: 8px;
-    font-size: 14px;
+    font-size: 15px;
+    letter-spacing: -0.1px;
 }
 
 input,
 textarea {
     width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid #d2d2d7;
+    border-radius: 10px;
     font-size: 15px;
-    font-family: inherit;
-    transition: border-color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #ffffff;
+    color: #1d1d1f;
+    -webkit-font-smoothing: antialiased;
 }
 
 input:focus,
 textarea:focus {
     outline: none;
-    border-color: #2d3748;
-    box-shadow: 0 0 0 3px rgba(45, 55, 72, 0.1);
+    border-color: #0071e3;
+    box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #86868b;
 }
 
 textarea {
     resize: vertical;
     min-height: 120px;
+    line-height: 1.5;
 }
 
-/* Submit button - always visible */
+/* Submit Button - Apple Style */
 .submit-btn {
-    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%) !important;
-    color: white !important;
+    background: #0071e3;
+    color: white;
     border: none;
-    padding: 15px 40px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 980px;
+    font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-    position: relative;
-    overflow: hidden;
-    display: inline-block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    z-index: 10;
-}
-
-.submit-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s ease;
-}
-
-.submit-btn:hover::before {
-    left: 100%;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 12px;
+    letter-spacing: -0.1px;
+    display: inline-block;
+    opacity: 1;
+    visibility: visible;
 }
 
 .submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(45, 55, 72, 0.4);
+    background: #0077ed;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 113, 227, 0.3);
 }
 
 .submit-btn:active {
     transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 113, 227, 0.2);
 }
 
+/* Thank You Section */
 .thank-you-section {
     display: none;
-    animation: fadeIn 0.5s ease;
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .thank-you-section.visible {
@@ -229,62 +236,69 @@ textarea {
 }
 
 .thank-you-icon {
-    width: 90px;
-    height: 90px;
-    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    width: 72px;
+    height: 72px;
+    background: #34c759;
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
-    margin: 0 auto 25px;
-    box-shadow: 0 8px 20px rgba(45, 55, 72, 0.3);
+    font-size: 40px;
+    margin: 0 auto 24px;
+    box-shadow: 0 4px 16px rgba(52, 199, 89, 0.2);
 }
 
 .thank-you-section h2 {
-    color: #333;
-    margin-bottom: 15px;
+    color: #1d1d1f;
+    margin-bottom: 12px;
 }
 
 .thank-you-section p {
-    color: #666;
-    font-size: 16px;
+    color: #86868b;
+    font-size: 15px;
     line-height: 1.6;
+    font-weight: 400;
 }
 
 /* Google Review Prompt */
 .google-review-prompt {
-    margin-top: 30px;
-    padding-top: 25px;
-    border-top: 1px solid #e0e0e0;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid #f0f0f0;
 }
 
 .disclaimer-text {
-    font-size: 11px !important;
-    color: #999 !important;
-    line-height: 1.4 !important;
-    margin-bottom: 15px !important;
+    font-size: 12px;
+    color: #86868b;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    font-weight: 400;
 }
 
 .google-review-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, #4285F4 0%, #357AE8 100%);
+    background: #0071e3;
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 13px;
+    padding: 12px 24px;
+    border-radius: 980px;
+    font-size: 15px;
     font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.2);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: -0.1px;
 }
 
 .google-review-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(66, 133, 244, 0.35);
+    background: #0077ed;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 113, 227, 0.3);
+}
+
+.google-review-btn:active {
+    transform: translateY(0);
 }
 
 .google-review-btn i {
@@ -293,104 +307,90 @@ textarea {
 
 /* Quick Links Footer */
 .quick-links {
-    margin-top: 40px;
-    padding-top: 30px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid #f0f0f0;
 }
 
 .divider {
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #2d3748, transparent);
-    margin: 0 auto 20px;
+    display: none; /* Verwijder extra divider - al border aanwezig */
 }
 
 .quick-links-title {
-    color: #666;
-    font-size: 13px;
+    color: #86868b;
+    font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     margin-bottom: 20px;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 16px;
     align-items: center;
 }
 
 .social-link {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border-radius: 12px;
-    display: flex !important;
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 20px;
     text-decoration: none;
     position: relative;
-    overflow: visible;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    opacity: 1 !important;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.social-link:active {
+    transform: translateY(0);
 }
 
 .social-link i {
-    display: inline-block !important;
+    display: inline-block;
     line-height: 1;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-.social-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.social-link:hover::before {
-    opacity: 1;
 }
 
 .website-link {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #5e5ce6;
     color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.website-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
 .instagram-link {
-    background: linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #F77737 100%);
+    background: linear-gradient(135deg, #833AB4 0%, #E1306C 50%, #F77737 100%);
     color: white;
 }
 
 .facebook-link {
-    background: linear-gradient(135deg, #1877F2 0%, #0a5bc4 100%);
+    background: #1877F2;
     color: white;
 }
 
-/* Tablet and below */
+/* Responsive Design */
+
+/* Tablet */
 @media (max-width: 768px) {
     body {
-        padding: 15px;
+        padding: 32px 16px;
     }
 
     .container {
-        padding: 40px 30px;
+        padding: 48px 32px;
+        border-radius: 18px;
     }
 
     h1 {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     h2 {
@@ -398,61 +398,71 @@ textarea {
     }
 
     .star {
-        font-size: 50px;
+        font-size: 48px;
+    }
+
+    .stars {
+        gap: 10px;
+    }
+
+    .logo {
+        max-width: 200px;
+    }
+
+    .rating-section {
+        margin: 40px 0;
+        padding: 28px 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .background-logo {
+        width: 70px;
+        bottom: 16px;
+        left: 16px;
+        opacity: 0.04;
+    }
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .container {
+        padding: 40px 24px;
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin-bottom: 24px;
+    }
+
+    .logo {
+        max-width: 160px;
+        margin-bottom: 24px;
+    }
+
+    .logo-section {
+        margin-bottom: 40px;
+    }
+
+    .rating-section {
+        margin: 32px 0;
+        padding: 24px 0;
     }
 
     .stars {
         gap: 8px;
     }
 
-    .logo {
-        max-width: 220px;
-    }
-}
-
-/* Mobile devices */
-@media (max-width: 600px) {
-    .background-logo {
-        width: 80px;
-        bottom: 10px;
-        left: 10px;
-        opacity: 0.1;
-    }
-
-    body {
-        padding: 10px;
-    }
-
-    .container {
-        padding: 30px 20px;
-        border-radius: 20px;
-    }
-
-    h1 {
-        font-size: 20px;
-        line-height: 1.3;
-    }
-
-    h2 {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-
-    .logo {
-        max-width: 180px;
-        margin-bottom: 20px;
-    }
-
-    .logo-section {
-        margin-bottom: 30px;
-    }
-
-    .stars {
-        gap: 6px;
-    }
-
     .star {
-        font-size: 42px;
+        font-size: 44px;
     }
 
     .rating-text {
@@ -462,77 +472,86 @@ textarea {
     input,
     textarea {
         font-size: 16px; /* Prevents zoom on iOS */
+        padding: 12px 14px;
     }
 
     .submit-btn {
         width: 100%;
-        padding: 14px 30px;
+        padding: 14px 24px;
         font-size: 15px;
-        display: block !important;
-        opacity: 1 !important;
-        visibility: visible !important;
+    }
+
+    .google-review-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 24px;
     }
 
     .social-link {
-        width: 45px;
-        height: 45px;
-        font-size: 20px;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
     }
 
     .social-links {
-        gap: 15px;
+        gap: 14px;
     }
 
     .quick-links {
-        margin-top: 30px;
-        padding-top: 25px;
+        margin-top: 40px;
+        padding-top: 28px;
     }
 
     .quick-links-title {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .thank-you-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 40px;
+        width: 64px;
+        height: 64px;
+        font-size: 36px;
+    }
+
+    .google-review-prompt {
+        margin-top: 28px;
+        padding-top: 28px;
     }
 }
 
-/* Small mobile devices */
+/* Small Mobile */
 @media (max-width: 380px) {
     body {
-        padding: 8px;
+        padding: 16px 10px;
     }
 
     .container {
-        padding: 25px 15px;
+        padding: 32px 20px;
     }
 
     h1 {
-        font-size: 18px;
+        font-size: 22px;
     }
 
     h2 {
-        font-size: 18px;
+        font-size: 19px;
     }
 
     .logo {
-        max-width: 150px;
+        max-width: 140px;
     }
 
     .stars {
-        gap: 4px;
+        gap: 6px;
     }
 
     .star {
-        font-size: 36px;
+        font-size: 40px;
     }
 
     .social-link {
         width: 40px;
         height: 40px;
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .social-links {
