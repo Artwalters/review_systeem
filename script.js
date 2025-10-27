@@ -302,6 +302,13 @@ feedbackForm.addEventListener('submit', (e) => {
         y: 15,
         ease: 'power2.out'
     }, '-=0.3');
+
+    timeline.from('.google-review-prompt', {
+        duration: 0.5,
+        opacity: 0,
+        y: 10,
+        ease: 'power2.out'
+    }, '-=0.2');
 });
 
 // Email verzenden functie

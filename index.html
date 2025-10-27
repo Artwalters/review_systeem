@@ -3,84 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akropolis Heerlen - Uw Ervaring</title>
-    <link rel="icon" type="image/webp" href="logo/logo_half.webp">
-    <link rel="stylesheet" href="style.css?v=2">
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <title>Akropolis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: #000000;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #unicorn-container {
+            width: 150vw;
+            height: 150vh;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #center-logo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            max-width: 300px;
+            width: 70%;
+            filter: brightness(0) invert(1);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Desktop - groter logo */
+        @media (min-width: 768px) {
+            #center-logo {
+                max-width: 600px;
+                width: 50%;
+            }
+        }
+
+        /* Mobile - kleiner logo */
+        @media (max-width: 480px) {
+            #center-logo {
+                max-width: 250px;
+                width: 65%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo-section">
-            <img src="logo/logo_header.webp" alt="Akropolis Heerlen" class="logo" id="logo">
-            <h1>Hoe was uw ervaring bij Akropolis Heerlen?</h1>
-        </div>
-
-        <!-- Sterren rating sectie -->
-        <div class="rating-section" id="ratingSection">
-            <div class="stars">
-                <span class="star" data-rating="1">&#9734;</span>
-                <span class="star" data-rating="2">&#9734;</span>
-                <span class="star" data-rating="3">&#9734;</span>
-                <span class="star" data-rating="4">&#9734;</span>
-                <span class="star" data-rating="5">&#9734;</span>
-            </div>
-            <p class="rating-text">Klik op de sterren om uw beoordeling te geven</p>
-        </div>
-
-        <!-- Feedback formulier (verborgen totdat < 5 sterren gekozen) -->
-        <div class="feedback-section" id="feedbackSection">
-            <h2>Vertel ons wat we kunnen verbeteren</h2>
-            <form id="feedbackForm">
-                <div class="form-group">
-                    <label for="name">Naam (optioneel):</label>
-                    <input type="text" id="name" name="name" placeholder="Uw naam">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">E-mail (optioneel):</label>
-                    <input type="email" id="email" name="email" placeholder="uw@email.nl">
-                </div>
-
-                <div class="form-group">
-                    <label for="feedback">Uw feedback:</label>
-                    <textarea id="feedback" name="feedback" rows="6" placeholder="Vertel ons wat we kunnen verbeteren..." required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Verzenden</button>
-            </form>
-        </div>
-
-        <!-- Bedankt bericht -->
-        <div class="thank-you-section" id="thankYouSection">
-            <div class="thank-you-icon">✓</div>
-            <h2>Bedankt voor uw feedback!</h2>
-            <p>Wij waarderen uw mening en zullen deze gebruiken om onze service te verbeteren.</p>
-        </div>
-
-        <!-- Quick Links Footer -->
-        <div class="quick-links">
-            <div class="divider"></div>
-            <p class="quick-links-title">Blijf verbonden</p>
-            <div class="social-links">
-                <a href="https://akropolis-heerlen.nl/" target="_blank" rel="noopener noreferrer" class="social-link website-link" title="Website">
-                    <i class="fas fa-globe"></i>
-                </a>
-                <a href="https://www.instagram.com/akropolisgeleen/?hl=el" target="_blank" rel="noopener noreferrer" class="social-link instagram-link" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.facebook.com/akropolisgeleen/" target="_blank" rel="noopener noreferrer" class="social-link facebook-link" title="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <script src="emailjs-config.js?v=2"></script>
-    <script src="script.js?v=2"></script>
+    <div id="unicorn-container" data-us-project="r91tnqHwZUdjRwWnngPA"></div>
+    <img id="center-logo" src="social_wave/branding/Social Wavw.svg" alt="Social Wave Logo">
+    <script type="text/javascript">!function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.33/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();</script>
 </body>
 </html>
