@@ -6,7 +6,48 @@ Dit systeem stelt Social Wave in staat om review formulieren te beheren voor 20+
 
 ---
 
-## 🔧 EmailJS Template Updaten
+## ⚡ Quick Start: EmailJS Template Instellen
+
+**BELANGRIJK:** Voer deze stappen uit om emails automatisch te labelen per onderneming!
+
+### 📧 Stap-voor-Stap: Email Template Setup
+
+1. **Ga naar EmailJS Dashboard**
+   - Open: https://dashboard.emailjs.com/
+   - Log in met je account
+
+2. **Open Email Templates**
+   - Klik op "Email Templates" in het menu
+   - Zoek je template: `template_de4ed4x`
+   - Klik erop om te bewerken
+
+3. **✨ UPDATE SUBJECT LINE (Zeer Belangrijk!)**
+
+   Verander de Subject naar **exact dit**:
+   ```
+   [{{client_tag}}] ⭐ {{rating}} sterren - Nieuwe Review
+   ```
+
+   Dit zorgt voor:
+   - `[AKROPOLIS] ⭐ 5 sterren - Nieuwe Review`
+   - `[BELLAITALIA] ⭐ 4 sterren - Nieuwe Review`
+   - etc.
+
+4. **Scroll naar beneden en klik "Save"**
+
+5. **Test het systeem:**
+   - Open `akropolis.html` in browser
+   - Geef een test review (bijv. 3 sterren)
+   - Check je email inbox
+   - Subject moet zijn: `[AKROPOLIS] ⭐ 3 sterren - Nieuwe Review`
+
+**Als je dit ziet, werkt het! 🎉**
+
+Nu kun je Gmail filters instellen op basis van de `[CLIENT_TAG]` in de subject line.
+
+---
+
+## 🔧 EmailJS Template Updaten (Volledige Template)
 
 ### Stap 1: Update Email Subject
 
@@ -267,15 +308,56 @@ Vervang de huidige email HTML met deze verbeterde versie:
 </html>
 ```
 
-### Belangrijke Template Variabelen:
-- `{{client_tag}}` - Client tag (bijv. "AKROPOLIS")
-- `{{client_name}}` - Display naam (bijv. "Akropolis Heerlen")
-- `{{business_name}}` - Bedrijfsnaam (bijv. "Akropolis Heerlen")
-- `{{rating}}` - Aantal sterren (1-5)
-- `{{name}}` - Naam klant
-- `{{email}}` - Email klant
-- `{{feedback}}` - Feedback tekst
-- `{{date}}` - Datum/tijd
+### 📝 Beschikbare Template Variabelen:
+
+Deze variabelen worden automatisch ingevuld door het systeem:
+
+| Variabele | Voorbeeld Waarde | Gebruik |
+|-----------|------------------|---------|
+| `{{client_tag}}` | `AKROPOLIS` | Voor email subject: `[AKROPOLIS]` |
+| `{{client_name}}` | `Akropolis Heerlen` | Display naam in email body |
+| `{{business_name}}` | `Akropolis Heerlen` | Bedrijfsnaam (zelfde als client_name) |
+| `{{rating}}` | `4` | Aantal sterren (1-5) |
+| `{{name}}` | `Jan Jansen` | Naam van de klant (of "Anoniem") |
+| `{{email}}` | `jan@email.nl` | Email van de klant (of "Geen email opgegeven") |
+| `{{feedback}}` | `Het eten was goed...` | Feedback tekst van de klant |
+| `{{date}}` | `27-10-2025, 14:30` | Datum en tijd van de review |
+
+**Let op:** De `{{client_tag}}` is het belangrijkste veld voor labeling!
+- Komt uit `emailTag` in `clients.json`
+- Wordt automatisch HOOFDLETTERS
+- Gebruik in subject: `[{{client_tag}}]` voor Gmail filters
+
+### 📬 Hoe het eruit ziet in je inbox:
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📥 INBOX (3 nieuwe emails)
+
+┌─────────────────────────────────────────────────┐
+│ 📧 [AKROPOLIS] ⭐ 5 sterren - Nieuwe Review     │
+│    Van: reviews@emailjs.com                     │
+│    Labels: Reviews/Akropolis                    │
+│    12:45 PM                                     │
+└─────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────┐
+│ 📧 [BELLAITALIA] ⭐ 4 sterren - Nieuwe Review   │
+│    Van: reviews@emailjs.com                     │
+│    Labels: Reviews/BellaItalia                  │
+│    11:30 AM                                     │
+└─────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────┐
+│ 📧 [AKROPOLIS] ⭐ 3 sterren - Nieuwe Review     │
+│    Van: reviews@emailjs.com                     │
+│    Labels: Reviews/Akropolis                    │
+│    10:15 AM                                     │
+└─────────────────────────────────────────────────┘
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+**Zo herken je direct welke onderneming een review heeft ontvangen!**
 
 ---
 
@@ -472,29 +554,74 @@ etc...
 
 ## 🔍 Troubleshooting
 
-### Reviews komen niet aan?
+### ❌ Emails komen niet aan?
 
-1. Check EmailJS dashboard - zijn er errors?
-2. Check console in browser (F12) - JavaScript errors?
-3. Verify client config is correct geladen
+**Probleem:** Geen emails ontvangen na review versturen
 
-### Client naam verschijnt niet in email?
+**Oplossingen:**
+1. Check EmailJS dashboard - zijn er errors? (https://dashboard.emailjs.com/)
+2. Open browser console (F12) - JavaScript errors?
+3. Verify client config is correct geladen: open console en type `getCurrentClientConfig()`
+4. Check of EmailJS credentials kloppen in `emailjs-config.js`
 
-1. Check of `client-loader.js` correct laadt
-2. Verify `getCurrentClientConfig()` werkt in console
-3. Check EmailJS template heeft `{{client_name}}` variabele
+### 🏷️ Email tag ontbreekt / verkeerde tag?
 
-### Gmail filter werkt niet?
+**Probleem:** Email subject is niet `[AKROPOLIS] ⭐ 4 sterren...` maar alleen `⭐ 4 sterren...`
 
-1. Check of subject exact match heeft met filter
-2. Probeer filter te verwijderen en opnieuw aanmaken
-3. Test met "Test Search" in Gmail filter popup
+**Oplossingen:**
+1. ✅ Check EmailJS template subject bevat: `[{{client_tag}}] ⭐ {{rating}} sterren - Nieuwe Review`
+2. ✅ Verify `clients.json` heeft `emailTag` ingevuld (bijv. `"emailTag": "AKROPOLIS"`)
+3. ✅ Test met console: `getCurrentClientConfig().email.tag` moet de juiste tag teruggeven
+4. ✅ Clear browser cache en test opnieuw
 
-### Verkeerde kleuren/logo?
+**Correct subject format:**
+```
+[AKROPOLIS] ⭐ 5 sterren - Nieuwe Review    ✅ CORRECT
+[BELLAITALIA] ⭐ 4 sterren - Nieuwe Review  ✅ CORRECT
+⭐ 4 sterren - Nieuwe Review                 ❌ FOUT (tag ontbreekt)
+[undefined] ⭐ 4 sterren - Nieuwe Review     ❌ FOUT (config niet geladen)
+```
 
-1. Check client ID detectie in console
-2. Verify logo pad klopt in config
-3. Check CSS variabelen in browser inspector
+### 📧 Client naam verschijnt niet in email body?
+
+**Probleem:** Email body toont "Onbekend" in plaats van bedrijfsnaam
+
+**Oplossingen:**
+1. Check of `client-loader.js` correct laadt (v4 of hoger)
+2. Verify `clients.json` heeft correcte `name` veld
+3. Check EmailJS template gebruikt `{{client_name}}` en `{{business_name}}` variabelen
+4. Test in console: `getCurrentClientConfig().name`
+
+### 🔍 Gmail filter werkt niet?
+
+**Probleem:** Emails komen aan maar krijgen geen label
+
+**Oplossingen:**
+1. ✅ Check of subject **exact** `[AKROPOLIS]` bevat (inclusief blokhaken)
+2. ✅ Gmail filter moet zoeken op `[AKROPOLIS]` in Subject field
+3. ✅ Test filter met "Test Search" knop in Gmail filter popup
+4. ✅ Probeer filter te verwijderen en opnieuw aanmaken
+5. ✅ Wacht 1-2 minuten - filters zijn soms niet instant
+
+**Filter voorbeeld:**
+```
+Matches: subject:[AKROPOLIS]
+Do this: Apply label "Reviews/Akropolis"
+```
+
+### 🎨 Verkeerde kleuren/logo op review pagina?
+
+**Probleem:** Logo of kleuren kloppen niet
+
+**Oplossingen:**
+1. Check client ID detectie in console: `detectClientId()`
+2. Verify logo pad klopt in `clients.json`
+3. Hard refresh browser: Ctrl + F5 (Windows) of Cmd + Shift + R (Mac)
+4. Check of client naam in URL overeenkomt met key in `clients.json`
+
+**Voorbeeld:**
+- URL: `akropolis.html` → moet key `"akropolis"` hebben in clients.json
+- URL: `bellaitalia.html` → moet key `"bellaitalia"` hebben in clients.json
 
 ---
 

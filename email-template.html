@@ -4,221 +4,247 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f5f5;
-      padding: 20px;
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      background: #f5f5f7;
+      padding: 40px 20px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     .email-container {
       max-width: 600px;
       margin: 0 auto;
       background: #ffffff;
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
     }
+
+    /* Header Sectie */
     .header {
-      background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
-      padding: 40px 30px;
+      background: #ffffff;
+      padding: 48px 40px 32px;
       text-align: center;
-      position: relative;
+      border-bottom: 1px solid #f0f0f0;
     }
-    .header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #2d3748 0%, #4a5568 50%, #2d3748 100%);
+    .client-badge {
+      display: inline-block;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      padding: 6px 16px;
+      border-radius: 16px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 20px;
     }
     .header h1 {
-      color: #ffffff;
-      font-size: 26px;
+      color: #1d1d1f;
+      font-size: 28px;
       font-weight: 600;
-      margin: 0 0 10px 0;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.5px;
     }
     .header p {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 14px;
+      color: #86868b;
+      font-size: 15px;
+      font-weight: 400;
       margin: 0;
     }
-    .rating-banner {
-      background: #000000;
-      padding: 30px;
+
+    /* Rating Sectie */
+    .rating-section {
+      background: #ffffff;
+      padding: 40px;
       text-align: center;
+      border-bottom: 1px solid #f0f0f0;
     }
     .rating-stars {
-      font-size: 60px;
-      color: #ffc107;
-      margin-bottom: 10px;
-      letter-spacing: 5px;
+      font-size: 48px;
+      color: #ff9500;
+      margin-bottom: 12px;
+      letter-spacing: 4px;
     }
     .rating-text {
-      color: #ffffff;
-      font-size: 24px;
+      color: #1d1d1f;
+      font-size: 20px;
       font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
     }
+    .rating-date {
+      color: #86868b;
+      font-size: 13px;
+      font-weight: 400;
+      margin-top: 8px;
+    }
+
+    /* Content Sectie */
     .content-section {
-      padding: 40px 30px;
+      padding: 40px;
+      background: #fbfbfd;
     }
-    .info-card {
-      background: #f9f9f9;
-      border-radius: 12px;
-      padding: 25px;
-      margin-bottom: 20px;
-      border-left: 4px solid #2d3748;
+    .section-title {
+      color: #1d1d1f;
+      font-size: 17px;
+      font-weight: 600;
+      margin: 0 0 16px 0;
+      letter-spacing: -0.2px;
+    }
+
+    /* Info Grid */
+    .info-grid {
+      display: table;
+      width: 100%;
+      margin-bottom: 32px;
     }
     .info-row {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 12px;
-    }
-    .info-row:last-child {
-      margin-bottom: 0;
-    }
-    .info-icon {
-      font-size: 20px;
-      margin-right: 12px;
-      min-width: 24px;
+      display: table-row;
     }
     .info-label {
-      font-weight: 600;
-      color: #555;
-      margin-right: 8px;
-      min-width: 60px;
+      display: table-cell;
+      padding: 12px 16px 12px 0;
+      font-size: 15px;
+      font-weight: 400;
+      color: #86868b;
+      width: 80px;
+      vertical-align: top;
     }
     .info-value {
-      color: #333;
+      display: table-cell;
+      padding: 12px 0;
+      font-size: 15px;
+      font-weight: 400;
+      color: #1d1d1f;
+      vertical-align: top;
     }
-    .feedback-card {
-      background: linear-gradient(135deg, #fff9e6 0%, #fff5cc 100%);
+
+    /* Feedback Sectie */
+    .feedback-section {
+      background: #ffffff;
       border-radius: 12px;
-      padding: 25px;
-      border: 2px solid #ffc107;
-      margin-top: 20px;
+      padding: 24px;
+      margin-top: 24px;
+      border: 1px solid #e5e5ea;
     }
-    .feedback-card h3 {
-      color: #333;
-      font-size: 18px;
-      margin: 0 0 15px 0;
-      display: flex;
-      align-items: center;
-    }
-    .feedback-card h3::before {
-      content: '💬';
-      margin-right: 10px;
-      font-size: 24px;
+    .feedback-section h3 {
+      color: #1d1d1f;
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 16px 0;
+      letter-spacing: -0.2px;
     }
     .feedback-text {
-      color: #444;
+      color: #1d1d1f;
       font-size: 15px;
-      line-height: 1.8;
+      line-height: 1.6;
+      font-weight: 400;
       white-space: pre-wrap;
       word-wrap: break-word;
     }
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #2d3748, transparent);
-      margin: 30px auto;
-    }
+
+    /* Footer */
     .footer {
-      background: #2d3748;
-      padding: 30px;
+      background: #f5f5f7;
+      padding: 32px 40px;
       text-align: center;
     }
-    .footer-logo {
-      color: rgba(255, 255, 255, 0.3);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
-    }
     .footer-text {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 13px;
-      margin: 8px 0;
+      color: #86868b;
+      font-size: 12px;
+      font-weight: 400;
+      margin: 6px 0;
+      line-height: 1.5;
     }
     .footer-link {
-      color: #ffffff;
+      color: #0071e3;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 400;
     }
-    .footer-link:hover {
-      text-decoration: underline;
-    }
-    .badge {
-      display: inline-block;
-      background: #2d3748;
-      color: white;
-      padding: 4px 12px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 10px;
+
+    /* Responsive */
+    @media only screen and (max-width: 600px) {
+      body {
+        padding: 20px 10px;
+      }
+      .header {
+        padding: 32px 24px 24px;
+      }
+      .rating-section {
+        padding: 32px 24px;
+      }
+      .content-section {
+        padding: 32px 24px;
+      }
+      .footer {
+        padding: 24px;
+      }
+      .rating-stars {
+        font-size: 40px;
+      }
+      .header h1 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="email-container">
+
     <!-- Header -->
     <div class="header">
-      <h1>📊 Nieuwe Review Ontvangen</h1>
-      <p>Akropolis Heerlen Review Systeem</p>
+      <div class="client-badge">{{client_tag}}</div>
+      <h1>Nieuwe Review</h1>
+      <p>{{client_name}}</p>
     </div>
 
-    <!-- Rating Banner -->
-    <div class="rating-banner">
+    <!-- Rating -->
+    <div class="rating-section">
       <div class="rating-stars">★★★★★</div>
       <div class="rating-text">{{rating}} van 5 sterren</div>
-      <div class="badge">{{date}}</div>
+      <div class="rating-date">{{date}}</div>
     </div>
 
     <!-- Content -->
     <div class="content-section">
-      <!-- Customer Info -->
-      <div class="info-card">
+
+      <!-- Klantgegevens -->
+      <div class="section-title">Klantgegevens</div>
+      <div class="info-grid">
         <div class="info-row">
-          <div class="info-icon">👤</div>
-          <div>
-            <span class="info-label">Naam:</span>
-            <span class="info-value">{{name}}</span>
-          </div>
+          <div class="info-label">Naam</div>
+          <div class="info-value">{{name}}</div>
         </div>
         <div class="info-row">
-          <div class="info-icon">📧</div>
-          <div>
-            <span class="info-label">Email:</span>
-            <span class="info-value">{{email}}</span>
-          </div>
+          <div class="info-label">Email</div>
+          <div class="info-value">{{email}}</div>
         </div>
       </div>
 
       <!-- Feedback -->
-      <div class="feedback-card">
-        <h3>Feedback van de klant</h3>
+      <div class="section-title">Feedback</div>
+      <div class="feedback-section">
+        <h3>Wat de klant zegt</h3>
         <div class="feedback-text">{{feedback}}</div>
       </div>
 
-      <div class="divider"></div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-      <div class="footer-logo">Powered by Social Wave</div>
       <p class="footer-text">
-        Dit bericht is verzonden via het<br>
-        <a href="https://artwalters.github.io/review_systeem/akropolis.html" class="footer-link">Akropolis Review Systeem</a>
-      </p>
-      <p class="footer-text" style="font-size: 11px; margin-top: 15px;">
-        © 2024 Akropolis Heerlen • Alle rechten voorbehouden
+        Social Wave Review System<br>
+        © 2024 Social Wave. Alle rechten voorbehouden.
       </p>
     </div>
+
   </div>
 </body>
 </html>
