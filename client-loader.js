@@ -1,15 +1,42 @@
 /**
  * Social Wave - Client Loader
  * Laadt dynamisch de juiste client configuratie en past de pagina aan
+ * Gebruikt clients.json met standaard waardes voor eenvoudige configuratie
  */
 
 // Globale variabele voor huidige client configuratie
 let currentClientConfig = null;
 
+// Standaard waardes (gebaseerd op Akropolis thema)
+const DEFAULTS = {
+    colors: {
+        primary: '#2d3748',
+        primaryDark: '#1a202c',
+        accent: '#ffc107',
+        background: '#000000',
+        text: '#333333'
+    },
+    texts: {
+        pageTitle: '{name} - Uw Ervaring',
+        heading: 'Hoe was uw ervaring bij {name}?',
+        ratingPrompt: 'Klik op de sterren om uw beoordeling te geven',
+        feedbackHeading: 'Vertel ons wat we kunnen verbeteren',
+        thankYouHeading: 'Bedankt voor uw feedback!',
+        thankYouMessage: 'Wij waarderen uw mening en zullen deze gebruiken om onze service te verbeteren.',
+        googlePrompt: 'Zou u ook een moment willen nemen om een review op Google achter te laten? Dit helpt ons enorm!',
+        googleButtonText: 'Google Review Schrijven',
+        footerTitle: 'Blijf verbonden'
+    },
+    email: {
+        recipientEmail: 'Akropolisreviews@gmail.com',
+        recipientName: 'Social Wave Reviews'
+    }
+};
+
 /**
  * Initialiseer de client configuratie en pas de pagina aan
  */
-function initializeClient() {
+async function initializeClient() {
     try {
         // Detecteer welke client dit is
         const clientId = detectClientId();
@@ -21,8 +48,8 @@ function initializeClient() {
 
         console.log(`Client gedetecteerd: ${clientId}`);
 
-        // Haal client configuratie op
-        const config = getClientConfig(clientId);
+        // Haal client configuratie op uit JSON
+        const config = await loadClientConfig(clientId);
 
         if (!config) {
             console.error(`Configuratie voor client '${clientId}' niet gevonden`);
@@ -45,6 +72,91 @@ function initializeClient() {
         console.error('Fout bij initialiseren client:', error);
         return false;
     }
+}
+
+/**
+ * Laad client configuratie uit clients.json en vul aan met defaults
+ */
+async function loadClientConfig(clientId) {
+    try {
+        // Fetch clients.json
+        const response = await fetch('config/clients.json');
+        if (!response.ok) {
+            throw new Error('Kon clients.json niet laden');
+        }
+
+        const data = await response.json();
+        const clientData = data.clients[clientId];
+
+        if (!clientData) {
+            console.error(`Client '${clientId}' niet gevonden in clients.json`);
+            return null;
+        }
+
+        // Bouw volledige configuratie met defaults
+        const config = {
+            name: clientData.name,
+            displayName: clientData.name,
+            logo: clientData.logo,
+            favicon: clientData.logo, // Gebruik zelfde logo als fallback
+
+            // Google Reviews
+            googlePlaceId: clientData.googlePlaceId,
+            googleReviewUrl: `https://search.google.com/local/writereview?placeid=${clientData.googlePlaceId}`,
+
+            // Social media
+            social: clientData.social || {},
+
+            // Kleuren (gebruik defaults)
+            colors: { ...DEFAULTS.colors },
+
+            // Teksten met naam ingevuld
+            texts: {
+                pageTitle: DEFAULTS.texts.pageTitle.replace('{name}', clientData.name),
+                heading: DEFAULTS.texts.heading.replace('{name}', clientData.name),
+                ratingPrompt: DEFAULTS.texts.ratingPrompt,
+                feedbackHeading: DEFAULTS.texts.feedbackHeading,
+                thankYouHeading: DEFAULTS.texts.thankYouHeading,
+                thankYouMessage: DEFAULTS.texts.thankYouMessage,
+                googlePrompt: DEFAULTS.texts.googlePrompt,
+                googleButtonText: DEFAULTS.texts.googleButtonText,
+                footerTitle: DEFAULTS.texts.footerTitle
+            },
+
+            // Email configuratie
+            email: {
+                tag: clientData.emailTag,
+                recipientEmail: DEFAULTS.email.recipientEmail,
+                recipientName: clientData.name
+            }
+        };
+
+        return config;
+
+    } catch (error) {
+        console.error('Fout bij laden client configuratie:', error);
+        return null;
+    }
+}
+
+/**
+ * Detecteer client ID uit huidige pagina URL of bestandsnaam
+ */
+function detectClientId() {
+    // Probeer eerst URL parameter (?client=akropolis)
+    const urlParams = new URLSearchParams(window.location.search);
+    const clientParam = urlParams.get('client');
+    if (clientParam) {
+        return clientParam.toLowerCase();
+    }
+
+    // Probeer bestandsnaam (akropolis.html)
+    const pathname = window.location.pathname;
+    const filename = pathname.split('/').pop();
+    const clientFromFilename = filename.replace('.html', '').toLowerCase();
+
+    // Geef client ID terug (zelfs als niet gevalideerd - validatie gebeurt bij laden)
+    return clientFromFilename;
 }
 
 /**

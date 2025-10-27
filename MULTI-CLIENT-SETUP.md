@@ -362,87 +362,94 @@ Kleur: Groen
 
 ---
 
-## 🆕 Nieuwe Client Toevoegen
+## 🆕 Nieuwe Client Toevoegen (Super Eenvoudig!)
 
-### 1. Update Client Config
+### 1. Update Client Config (config/clients.json)
 
-Edit `config/clients.js` en voeg nieuwe client toe:
+Open `config/clients.json` en voeg een nieuw block toe:
 
-```javascript
-'restaurantnaam': {
-    name: 'Restaurant Naam Volledig',
-    displayName: 'Restaurant Naam Locatie',
-
-    // Branding
-    logo: 'logos/restaurant-logo.png',
-    favicon: 'logos/restaurant-icon.png',
-
-    // Kleuren
-    colors: {
-        primary: '#e63946',
-        primaryDark: '#d62828',
-        accent: '#f77f00',
-        background: '#ffffff',
-        text: '#2b2d42'
+```json
+{
+  "clients": {
+    "akropolis": {
+      "name": "Akropolis Heerlen",
+      "logo": "logo/logo_header.webp",
+      "googlePlaceId": "ChIJ97cJ27q9wEcRsRAe5JZUD_k",
+      "social": {
+        "website": "https://akropolis-heerlen.nl/",
+        "instagram": "https://www.instagram.com/akropolis.restaurants?igsh=OGxpdjNxc2Noamxk",
+        "facebook": "https://www.facebook.com/akropolisgeleen/"
+      },
+      "emailTag": "AKROPOLIS"
     },
-
-    // Google Reviews
-    googlePlaceId: 'JOUW_GOOGLE_PLACE_ID',
-    googleReviewUrl: 'https://search.google.com/local/writereview?placeid=JOUW_GOOGLE_PLACE_ID',
-
-    // Social Media
-    social: {
-        website: 'https://restaurant.nl',
-        instagram: 'https://instagram.com/restaurant',
-        facebook: 'https://facebook.com/restaurant'
-    },
-
-    // Teksten (volledig aanpasbaar!)
-    texts: {
-        pageTitle: 'Restaurant Naam - Deel Uw Ervaring',
-        heading: 'Hoe was uw bezoek bij Restaurant Naam?',
-        ratingPrompt: 'Klik op de sterren om te beoordelen',
-        feedbackHeading: 'Vertel ons meer',
-        thankYouHeading: 'Hartelijk dank!',
-        thankYouMessage: 'Uw feedback helpt ons om nog beter te worden.',
-        googlePrompt: 'Wilt u ook een Google review plaatsen?',
-        googleButtonText: 'Naar Google',
-        footerTitle: 'Volg ons'
-    },
-
-    // Email configuratie
-    email: {
-        tag: 'RESTAURANT',  // Voor [RESTAURANT] in subject
-        recipientEmail: 'Akropolisreviews@gmail.com',  // Centrale email
-        recipientName: 'Restaurant Reviews'
+    "bellaitalia": {
+      "name": "Bella Italia Heerlen",
+      "logo": "logos/bellaitalia.png",
+      "googlePlaceId": "BELLA_PLACE_ID_HIER",
+      "social": {
+        "website": "https://bellaitalia.nl",
+        "instagram": "https://instagram.com/bellaitalia",
+        "facebook": "https://facebook.com/bellaitalia"
+      },
+      "emailTag": "BELLAITALIA"
     }
+  }
 }
 ```
 
+**Dat is alles!** Alleen 6 velden per client:
+- `name` - Bedrijfsnaam (wordt gebruikt in alle teksten)
+- `logo` - Pad naar logo bestand
+- `googlePlaceId` - Google Place ID voor reviews
+- `social` - Website, Instagram, Facebook URLs
+- `emailTag` - Tag voor email subject (bijv. [BELLAITALIA])
+
+**Alle kleuren, teksten en andere instellingen zijn automatisch standaard!**
+
 ### 2. Maak HTML Bestand
 
-Kopieer `akropolis.html` naar `restaurantnaam.html` - geen aanpassingen nodig!
+Kopieer `akropolis.html` naar `bellaitalia.html` - **geen aanpassingen nodig!**
 
 Het systeem detecteert automatisch welke client het is op basis van de bestandsnaam.
 
-### 3. Upload Logo's (optioneel)
+### 3. Upload Logo (optioneel)
 
-Als de client eigen logo's heeft:
-- Upload naar `logos/restaurantnaam-logo.png`
-- Upload favicon naar `logos/restaurantnaam-icon.png`
+Als de client een eigen logo heeft:
+- Upload naar `logos/bellaitalia.png`
 
 ### 4. Maak Gmail Filter
 
-Volg de stappen hierboven met de nieuwe `client_tag`.
+Volg de stappen hierboven met de nieuwe `emailTag` (bijv. "BELLAITALIA").
 
 ### 5. Test!
 
-1. Open `restaurantnaam.html` in browser
+1. Open `bellaitalia.html` in browser
 2. Geef een review
-3. Check of email arriveert met juiste tag
+3. Check of email arriveert met juiste tag: `[BELLAITALIA]`
 4. Verify Gmail filter werkt
 
-**Klaar! Nieuwe client is nu operationeel.** 🎉
+**Klaar! Nieuwe client is nu operationeel in 2 minuten.** 🎉
+
+---
+
+## 🎨 Standaard Instellingen
+
+Het systeem gebruikt automatisch deze standaard waardes voor alle clients:
+
+**Kleuren:**
+- Primary: `#2d3748` (donkergrijs)
+- Primary Dark: `#1a202c` (donkerder grijs)
+- Accent: `#ffc107` (goud voor sterren)
+- Background: `#000000` (zwart)
+- Text: `#333333` (donkergrijs)
+
+**Teksten:** (automatisch aangepast met bedrijfsnaam)
+- "Hoe was uw ervaring bij {name}?"
+- "Bedankt voor uw feedback!"
+- "Klik op de sterren om uw beoordeling te geven"
+- etc.
+
+**Wil je custom kleuren of teksten?** Geen probleem! De standaard waardes staan in `client-loader.js` en kunnen daar aangepast worden.
 
 ---
 

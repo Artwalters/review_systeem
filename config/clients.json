@@ -1,0 +1,32 @@
+{
+  "clients": {
+    "akropolis": {
+      "name": "Akropolis Heerlen",
+      "logo": "logo/logo_header.webp",
+      "googlePlaceId": "ChIJ97cJ27q9wEcRsRAe5JZUD_k",
+      "social": {
+        "website": "https://akropolis-heerlen.nl/",
+        "instagram": "https://www.instagram.com/akropolis.restaurants?igsh=OGxpdjNxc2Noamxk",
+        "facebook": "https://www.facebook.com/akropolisgeleen/"
+      },
+      "emailTag": "AKROPOLIS"
+    },
+    "bellaitalia": {
+      "name": "Bella Italia Heerlen",
+      "logo": "logos/bellaitalia.png",
+      "googlePlaceId": "BELLA_PLACE_ID_HIER",
+      "social": {
+        "website": "https://bellaitalia.nl",
+        "instagram": "https://instagram.com/bellaitalia",
+        "facebook": "https://facebook.com/bellaitalia"
+      },
+      "emailTag": "BELLAITALIA"
+    }
+  },
+  "_instructies": {
+    "nieweKlant": "Kopieer een bestaand block, verander clientId (lowercase), naam, logo pad, googlePlaceId, social links en emailTag",
+    "googlePlaceId": "Zoek op: https://developers.google.com/maps/documentation/places/web-service/place-id",
+    "emailTag": "Dit verschijnt in email subject als [TAG], gebruik HOOFDLETTERS zonder spaties",
+    "logo": "Upload logo naar /logos/ folder of gebruik bestaande uit /logo/ folder"
+  }
+}
