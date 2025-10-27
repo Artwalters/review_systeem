@@ -28,13 +28,20 @@ function sendEmailViaEmailJS(data) {
     // Initialize EmailJS
     emailjs.init(EMAILJS_CONFIG.publicKey);
 
+    // Haal client configuratie op
+    const clientConfig = getCurrentClientConfig();
+
     // Template parameters
     const templateParams = {
         rating: data.rating,
         name: data.name,
         email: data.email,
         feedback: data.feedback,
-        date: new Date().toLocaleString('nl-NL')
+        date: new Date().toLocaleString('nl-NL'),
+        // Client specifieke info voor herkenning in email
+        client_tag: clientConfig ? clientConfig.email.tag : 'UNKNOWN',
+        client_name: clientConfig ? clientConfig.displayName : 'Onbekend',
+        business_name: clientConfig ? clientConfig.name : 'Onbekend'
     };
 
     // Verstuur email

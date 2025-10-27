@@ -1,9 +1,14 @@
-// Google Reviews URL voor Akropolis Heerlen
-// Deze URL opent direct de review schrijf pagina op desktop en mobiel
-const GOOGLE_REVIEW_URL = 'https://search.google.com/local/writereview?placeid=ChIJ97cJ27q9wEcRsRAe5JZUD_k';
+// Google Reviews URL en Email worden dynamisch geladen uit client config
+// Zie config/clients.js voor client specifieke instellingen
+function getGoogleReviewUrl() {
+    const config = getCurrentClientConfig();
+    return config ? config.googleReviewUrl : '';
+}
 
-// Email configuratie - je moet EmailJS instellen of een eigen backend gebruiken
-const BUSINESS_EMAIL = 'info@acropolis-heerlen.nl'; // Vervang met het echte email adres
+function getBusinessEmail() {
+    const config = getCurrentClientConfig();
+    return config ? config.email.recipientEmail : '';
+}
 
 // Selecteer alle elementen
 const stars = document.querySelectorAll('.star');
@@ -205,7 +210,7 @@ function handleRating(rating) {
             scale: 0.95,
             ease: 'power2.in',
             onComplete: () => {
-                window.location.href = GOOGLE_REVIEW_URL;
+                window.location.href = getGoogleReviewUrl();
             }
         });
     } else {
