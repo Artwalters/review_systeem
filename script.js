@@ -17,6 +17,7 @@ const feedbackSection = document.getElementById('feedbackSection');
 const thankYouSection = document.getElementById('thankYouSection');
 const feedbackForm = document.getElementById('feedbackForm');
 const logo = document.getElementById('logo');
+const mainHeading = document.getElementById('mainHeading');
 
 let selectedRating = 0;
 
@@ -275,6 +276,17 @@ feedbackForm.addEventListener('submit', (e) => {
 
     // Toon bedankt bericht met animatie
     const timeline = gsap.timeline();
+
+    // Verberg de hoofdvraag voor een strakker design (logo blijft staan)
+    timeline.to('#mainHeading', {
+        duration: 0.4,
+        opacity: 0,
+        y: -20,
+        ease: 'power2.in',
+        onComplete: () => {
+            mainHeading.style.display = 'none';
+        }
+    }, 0);
 
     timeline.to('.feedback-section', {
         duration: 0.4,

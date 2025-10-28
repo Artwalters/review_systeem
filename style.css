@@ -262,48 +262,25 @@ textarea {
     font-weight: 400;
 }
 
-/* Google Review Prompt */
+/* Google Review Link (subtiel) */
 .google-review-prompt {
-    margin-top: 32px;
-    padding-top: 32px;
-    border-top: 1px solid #f0f0f0;
+    margin-top: 24px;
+    padding-top: 0;
+    border-top: none;
 }
 
-.disclaimer-text {
-    font-size: 12px;
-    color: #86868b;
-    line-height: 1.5;
-    margin-bottom: 16px;
-    font-weight: 400;
-}
-
-.google-review-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #0071e3;
-    color: white;
+.google-review-link {
+    font-size: 11px;
+    color: #a1a1a6;
     text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 980px;
-    font-size: 15px;
-    font-weight: 500;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    letter-spacing: -0.1px;
+    font-weight: 400;
+    transition: color 0.2s ease;
+    letter-spacing: 0.1px;
 }
 
-.google-review-btn:hover {
-    background: #0077ed;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(0, 113, 227, 0.3);
-}
-
-.google-review-btn:active {
-    transform: translateY(0);
-}
-
-.google-review-btn i {
-    font-size: 16px;
+.google-review-link:hover {
+    color: #86868b;
+    text-decoration: underline;
 }
 
 /* Quick Links Footer */
@@ -480,10 +457,8 @@ textarea {
         font-size: 15px;
     }
 
-    .google-review-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 12px 24px;
+    .google-review-link {
+        font-size: 10px;
     }
 
     .social-link {
