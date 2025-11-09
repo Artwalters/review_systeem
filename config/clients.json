@@ -21,6 +21,17 @@
         "facebook": "https://facebook.com/bellaitalia"
       },
       "emailTag": "BELLAITALIA"
+    },
+    "akropolisgeleen": {
+      "name": "Akropolis Geleen",
+      "logo": "logo/logo_header.webp",
+      "googlePlaceId": "ChIJXXMAQj_HwEcRJoP_TyRuFOU",
+      "social": {
+        "website": "https://akropolis-heerlen.nl/",
+        "instagram": "https://www.instagram.com/akropolis.restaurants?igsh=OGxpdjNxc2Noamxk",
+        "facebook": "https://www.facebook.com/akropolisgeleen/"
+      },
+      "emailTag": "AKROPOLIS GELEEN"
     }
   },
   "_instructies": {
