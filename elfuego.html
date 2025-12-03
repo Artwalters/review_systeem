@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">El Fuego Valkenburg - Uw Ervaring</title>
+    <link rel="icon" type="image/webp" href="logo/logo_half.webp" id="favicon">
+    <link rel="stylesheet" href="style.css?v=6">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Social Wave logo in achtergrond -->
+    <img src="social_wave/branding/Social Wavw.svg" alt="Social Wave" class="background-logo">
+
+    <div class="container">
+        <div class="logo-section">
+            <img src="logo/el_fuego.jpg" alt="El Fuego Valkenburg" class="logo" id="logo" data-dynamic="logo">
+            <h1 id="mainHeading">Hoe was uw ervaring bij El Fuego Valkenburg?</h1>
+        </div>
+
+        <!-- Sterren rating sectie -->
+        <div class="rating-section" id="ratingSection">
+            <div class="stars">
+                <span class="star" data-rating="1">&#9734;</span>
+                <span class="star" data-rating="2">&#9734;</span>
+                <span class="star" data-rating="3">&#9734;</span>
+                <span class="star" data-rating="4">&#9734;</span>
+                <span class="star" data-rating="5">&#9734;</span>
+            </div>
+            <p class="rating-text" id="ratingPrompt">Klik op de sterren om uw beoordeling te geven</p>
+        </div>
+
+        <!-- Feedback formulier (verborgen totdat < 5 sterren gekozen) -->
+        <div class="feedback-section" id="feedbackSection">
+            <h2 id="feedbackHeading">Vertel ons wat we kunnen verbeteren</h2>
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="name">Naam (optioneel):</label>
+                    <input type="text" id="name" name="name" placeholder="Uw naam">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail (optioneel):</label>
+                    <input type="email" id="email" name="email" placeholder="uw@email.nl">
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback">Uw feedback:</label>
+                    <textarea id="feedback" name="feedback" rows="6" placeholder="Vertel ons wat we kunnen verbeteren..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Verzenden</button>
+            </form>
+        </div>
+
+        <!-- Bedankt bericht -->
+        <div class="thank-you-section" id="thankYouSection">
+            <div class="thank-you-icon">✓</div>
+            <h2 id="thankYouHeading">Bedankt voor uw feedback!</h2>
+            <p id="thankYouMessage">Wij waarderen uw mening en zullen deze gebruiken om onze service te verbeteren.</p>
+
+            <!-- Google Review link (subtiel) -->
+            <div class="google-review-prompt">
+                <a href="https://search.google.com/local/writereview?placeid=ChIJY6mAon3rwEcRJvp-3SDPBLg" target="_blank" rel="noopener noreferrer" class="google-review-link" id="googleReviewLink" data-dynamic="googleUrl">Laat nog een Google review achter</a>
+            </div>
+        </div>
+
+        <!-- Quick Links Footer -->
+        <div class="quick-links">
+            <div class="divider"></div>
+            <p class="quick-links-title" id="footerTitle">Blijf verbonden</p>
+            <div class="social-links">
+                <a href="https://www.elfuegovalkenburg.nl" target="_blank" rel="noopener noreferrer" class="social-link website-link" title="Website" id="websiteLink" data-dynamic="websiteUrl">
+                    <i class="fas fa-globe"></i>
+                </a>
+                <a href="https://www.instagram.com/elfuego.valkenburg?igsh=N2dhYXM0ZG5kNTIz" target="_blank" rel="noopener noreferrer" class="social-link instagram-link" title="Instagram" id="instagramLink" data-dynamic="instagramUrl">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://m.facebook.com/elfuego.valkenburg/" target="_blank" rel="noopener noreferrer" class="social-link facebook-link" title="Facebook" id="facebookLink" data-dynamic="facebookUrl">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client loader moet voor andere scripts laden -->
+    <script src="client-loader.js?v=4"></script>
+    <script src="emailjs-config.js?v=3"></script>
+    <script src="script.js?v=3"></script>
+</body>
+</html>

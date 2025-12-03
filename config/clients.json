@@ -32,6 +32,39 @@
         "facebook": "https://www.facebook.com/akropolisgeleen/"
       },
       "emailTag": "AKROPOLIS GELEEN"
+    },
+    "elfuego": {
+      "name": "El Fuego Valkenburg",
+      "logo": "logo/el_fuego.jpg",
+      "googlePlaceId": "ChIJY6mAon3rwEcRJvp-3SDPBLg",
+      "social": {
+        "website": "https://www.elfuegovalkenburg.nl",
+        "instagram": "https://www.instagram.com/elfuego.valkenburg?igsh=N2dhYXM0ZG5kNTIz",
+        "facebook": "https://m.facebook.com/elfuego.valkenburg/"
+      },
+      "emailTag": "ELFUEGO"
+    },
+    "brazza": {
+      "name": "Brazza Valkenburg",
+      "logo": "logo/brazza.jpg",
+      "googlePlaceId": "ChIJ0YOvPavqwEcR15l6DJs6EH4",
+      "social": {
+        "website": "https://www.brazzavalkenburg.nl",
+        "instagram": "https://www.instagram.com/brazza.valkenburg?igsh=MTYydGwyeDJlaGpq",
+        "facebook": "https://m.facebook.com/brazza.valkenburg/"
+      },
+      "emailTag": "BRAZZA"
+    },
+    "rossa": {
+      "name": "La Rossa Valkenburg",
+      "logo": "logo/larossa.jpg",
+      "googlePlaceId": "ChIJWc6nUKnrwEcRhqup6mAjMic",
+      "social": {
+        "website": "https://larossavalkenburg.nl",
+        "instagram": "https://www.instagram.com/brazza.valkenburg?igsh=MTYydGwyeDJlaGpq",
+        "facebook": "https://www.facebook.com/61557890094002/"
+      },
+      "emailTag": "LAROSSA"
     }
   },
   "_instructies": {
