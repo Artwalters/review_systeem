@@ -28,7 +28,7 @@ const DEFAULTS = {
         footerTitle: 'Blijf verbonden'
     },
     email: {
-        recipientEmail: 'Akropolisreviews@gmail.com',
+        recipientEmail: 'socialwavereviews@gmail.com',
         recipientName: 'Social Wave Reviews'
     }
 };
@@ -126,7 +126,7 @@ async function loadClientConfig(clientId) {
             // Email configuratie
             email: {
                 tag: clientData.emailTag,
-                recipientEmail: DEFAULTS.email.recipientEmail,
+                recipientEmail: clientData.recipientEmail || DEFAULTS.email.recipientEmail,
                 recipientName: clientData.name
             }
         };

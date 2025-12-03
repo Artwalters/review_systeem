@@ -1,19 +1,22 @@
 // EmailJS Configuratie
-// Volg deze stappen om EmailJS in te stellen:
-
-// 1. Ga naar https://www.emailjs.com/ en maak een gratis account
-// 2. Voeg een email service toe (Gmail, Outlook, etc.)
-// 3. Maak een email template met de volgende variabelen:
+// Dynamisch email routing systeem met twee templates:
+// - template_de4ed4x: Voor alle standaard clients → socialwavereviews@gmail.com
+// - template_zgr691p: Speciaal voor Wieetsjaf → review@wieetsjaf.nl
+//
+// Template variabelen:
 //    - {{rating}} - Aantal sterren
 //    - {{name}} - Naam van de klant
 //    - {{email}} - Email van de klant
 //    - {{feedback}} - Feedback tekst
-// 4. Noteer je Service ID, Template ID en Public Key
-// 5. Vervang de waarden hieronder
+//    - {{client_tag}} - Client identificatie (bijv. WIEETSJAF, AKROPOLIS)
+//    - {{client_name}} - Client naam
+//    - {{business_name}} - Business naam
+//    - {{date}} - Datum en tijd van de review
 
 const EMAILJS_CONFIG = {
     serviceID: 'service_47s8oi9',      // EmailJS Service ID
-    templateID: 'template_de4ed4x',    // EmailJS Template ID
+    templateID: 'template_de4ed4x',    // EmailJS Template ID (standaard: socialwavereviews@gmail.com)
+    templateID_wieetsjaf: 'template_zgr691p',  // Template voor Wieetsjaf (review@wieetsjaf.nl)
     publicKey: 'wF-4QAP4NvBd5rSFK'     // EmailJS Public Key
 };
 
@@ -38,16 +41,21 @@ function sendEmailViaEmailJS(data) {
         email: data.email,
         feedback: data.feedback,
         date: new Date().toLocaleString('nl-NL'),
-        // Client specifieke info voor herkenning in email
         client_tag: clientConfig ? clientConfig.email.tag : 'UNKNOWN',
-        client_name: clientConfig ? clientConfig.displayName : 'Onbekend',
+        client_name: clientConfig ? clientConfig.name : 'Onbekend',
         business_name: clientConfig ? clientConfig.name : 'Onbekend'
     };
 
-    // Verstuur email
+    // Bepaal welke template te gebruiken op basis van client
+    const isWieetsjaf = clientConfig && clientConfig.email &&
+                        clientConfig.email.recipientEmail === 'review@wieetsjaf.nl';
+
+    const templateToUse = isWieetsjaf ? EMAILJS_CONFIG.templateID_wieetsjaf : EMAILJS_CONFIG.templateID;
+
+    // Verstuur email met de juiste template
     emailjs.send(
         EMAILJS_CONFIG.serviceID,
-        EMAILJS_CONFIG.templateID,
+        templateToUse,
         templateParams
     )
     .then((response) => {

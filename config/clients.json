@@ -9,18 +9,8 @@
         "instagram": "https://www.instagram.com/akropolis.restaurants?igsh=OGxpdjNxc2Noamxk",
         "facebook": "https://www.facebook.com/akropolisgeleen/"
       },
-      "emailTag": "AKROPOLIS"
-    },
-    "bellaitalia": {
-      "name": "Bella Italia Heerlen",
-      "logo": "logos/bellaitalia.png",
-      "googlePlaceId": "BELLA_PLACE_ID_HIER",
-      "social": {
-        "website": "https://bellaitalia.nl",
-        "instagram": "https://instagram.com/bellaitalia",
-        "facebook": "https://facebook.com/bellaitalia"
-      },
-      "emailTag": "BELLAITALIA"
+      "emailTag": "AKROPOLIS",
+      "recipientEmail": "socialwavereviews@gmail.com"
     },
     "akropolisgeleen": {
       "name": "Akropolis Geleen",
@@ -31,7 +21,8 @@
         "instagram": "https://www.instagram.com/akropolis.restaurants?igsh=OGxpdjNxc2Noamxk",
         "facebook": "https://www.facebook.com/akropolisgeleen/"
       },
-      "emailTag": "AKROPOLIS GELEEN"
+      "emailTag": "AKROPOLIS GELEEN",
+      "recipientEmail": "socialwavereviews@gmail.com"
     },
     "elfuego": {
       "name": "El Fuego Valkenburg",
@@ -42,7 +33,8 @@
         "instagram": "https://www.instagram.com/elfuego.valkenburg?igsh=N2dhYXM0ZG5kNTIz",
         "facebook": "https://m.facebook.com/elfuego.valkenburg/"
       },
-      "emailTag": "ELFUEGO"
+      "emailTag": "ELFUEGO",
+      "recipientEmail": "socialwavereviews@gmail.com"
     },
     "brazza": {
       "name": "Brazza Valkenburg",
@@ -53,7 +45,8 @@
         "instagram": "https://www.instagram.com/brazza.valkenburg?igsh=MTYydGwyeDJlaGpq",
         "facebook": "https://m.facebook.com/brazza.valkenburg/"
       },
-      "emailTag": "BRAZZA"
+      "emailTag": "BRAZZA",
+      "recipientEmail": "socialwavereviews@gmail.com"
     },
     "rossa": {
       "name": "La Rossa Valkenburg",
@@ -64,7 +57,8 @@
         "instagram": "https://www.instagram.com/brazza.valkenburg?igsh=MTYydGwyeDJlaGpq",
         "facebook": "https://www.facebook.com/61557890094002/"
       },
-      "emailTag": "LAROSSA"
+      "emailTag": "LAROSSA",
+      "recipientEmail": "socialwavereviews@gmail.com"
     },
     "wieetsjaf": {
       "name": "Dé Wieetsjaf",
@@ -75,7 +69,8 @@
         "instagram": "https://www.instagram.com/wieetsjaf/",
         "facebook": "https://www.facebook.com/Wieetsjaf/"
       },
-      "emailTag": "WIEETSJAF"
+      "emailTag": "WIEETSJAF",
+      "recipientEmail": "review@wieetsjaf.nl"
     }
   },
   "_instructies": {
