@@ -65,6 +65,17 @@
         "facebook": "https://www.facebook.com/61557890094002/"
       },
       "emailTag": "LAROSSA"
+    },
+    "wieetsjaf": {
+      "name": "Dé Wieetsjaf",
+      "logo": "logo/logo_wieetsjaf.svg",
+      "googlePlaceId": "ChIJcSP1O6KiokYRZZC7Uo6W4CE",
+      "social": {
+        "website": "https://www.wieetsjaf.nl/",
+        "instagram": "https://www.instagram.com/wieetsjaf/",
+        "facebook": "https://www.facebook.com/Wieetsjaf/"
+      },
+      "emailTag": "WIEETSJAF"
     }
   },
   "_instructies": {
