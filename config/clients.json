@@ -60,6 +60,18 @@
       "emailTag": "LAROSSA",
       "recipientEmail": "socialwavereviews@gmail.com"
     },
+    "labodega": {
+      "name": "La Bodega Maastricht",
+      "logo": "logo/labodega.png",
+      "googlePlaceId": "ChIJH6Ux6bnpwEcRWo5cBhgKck4",
+      "social": {
+        "website": "https://labodega-maastricht.nl/",
+        "instagram": "https://www.instagram.com/labodegamaastricht/",
+        "facebook": "https://www.facebook.com/labodegamaastricht/"
+      },
+      "emailTag": "LABODEGA",
+      "recipientEmail": "socialwavereviews@gmail.com"
+    },
     "wieetsjaf": {
       "name": "Dé Wieetsjaf",
       "logo": "logo/logo_wieetsjaf.svg",
